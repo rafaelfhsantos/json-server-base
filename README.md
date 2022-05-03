@@ -58,8 +58,9 @@ Quando não preenche email ou senha:
 
 ### POST/tools/
 
+userId e name são requeridos!
+
 Corpo
-É interessante colocar o userId para poder relacionar a tabela de usuário durante as consultas.
 
 ```json
 {
@@ -80,6 +81,12 @@ Resposta 201 Created:
 }
 ```
 
+Caso já exista com o mesmo nome a resposta é 400 Bad Request
+
+```json
+"Já existe uma ferramenta com esse nome!"
+```
+
 Resposta 401 Unauthorized:
 
 ```json
@@ -91,7 +98,7 @@ Resposta 401 Unauthorized:
 Cadastrar profissão
 
 Precisa de um usuário cadastrado por causa do bearer token.
-É interessante também informar toolId caso queira fazer uma consulta nas ferramentas e relacionar com a profissão com \_embed
+userId e name são requeridos!
 
 ```json
 {
@@ -114,6 +121,12 @@ Resposta 201 CREATED
 }
 ```
 
+Caso já exista com o mesmo nome a resposta é 400 Bad Request
+
+```json
+"Já existe uma profissão com esse nome!"
+```
+
 ### Login
 
 POST /login <br/>
@@ -129,6 +142,7 @@ Authorization: Bearer: xxx.xxx.xxx
 
 Retorna os dados de um usuário específico.
 
+<br>
 GET /users/:userId?\_embed=professionals&\_embed=tools
 
 Retorna os dados de um usuário assim como a profissão e ferramenta relacionada.
@@ -173,6 +187,7 @@ se não incluir o bearer token:
 "Missing authorization header"
 ```
 
+<br>
 GET /tools/
 
 Retorna a lista de ferramentas.
@@ -200,6 +215,7 @@ Exemplo de resposta 200 OK:
 ]
 ```
 
+<br>
 GET /tools?\_embed=professionals
 
 Retorna a lista de ferramentas com as profissões
@@ -276,4 +292,29 @@ Exemplo de resposta 200 OK:
     "id": 3
   }
 ]
+```
+
+### Requisições DELETE
+
+<br>
+DELETE /users/:id   (requer autenticação do próprio usuário)
+
+DELETE /tools/:id
+
+DELETE /professionals/:id
+<br><br>
+Requer Bearer Token
+
+<br>
+
+Resposta exemplo 200 OK:
+
+```json
+{}
+```
+
+Resposta exemplo sem token 401 Unauthorized:
+
+```json
+"Missing authorization header"
 ```

@@ -1,4 +1,6 @@
 const jsonServer = require("json-server");
+const checkRepeatedName = require("./middlewares/checkRepeatedName");
+const checkUndefinedParam = require("./middlewares/checkUndefinedParam");
 const auth = require("json-server-auth");
 const cors = require("cors");
 const port = process.env.PORT || 3001;
@@ -14,7 +16,12 @@ const rules = auth.rewriter({
   professionals: 664,
 });
 
+app.use(jsonServer.bodyParser);
+
 app.use(cors());
+app.use("", checkRepeatedName);
+app.use("/tools/", checkUndefinedParam);
+app.use("/professionals/", checkUndefinedParam);
 app.use(rules);
 app.use(auth);
 app.use(router);
