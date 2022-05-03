@@ -6,6 +6,73 @@
       "name": "Kenzinho",
       "age": 38,
       "id": 1
+    },
+    {
+      "name": "Jose",
+      "email": "jose@jose.com",
+      "password": "$2a$10$RVW/wUqtCUDk2mTIbvHTa.AQn5ffuXpL.2xRt.OfeHc/GfJXGju3K",
+      "id": 2
+    },
+    {
+      "name": "Fulano",
+      "email": "fulano@fulano.com",
+      "password": "$2a$10$lo72y5UBrkigY9keHf2nZuW04oOEdn/zEWUyA5ZYsu2upvAhoWw0i",
+      "id": 3
+    },
+    {
+      "email": "siclano@siclano.com",
+      "password": "$2a$10$EszwermRlNMfJy/emlhcbenfa8Md828tiqvGrIkGN1DPO6QyIpilm",
+      "name": "Siclano",
+      "id": 4
+    }
+  ],
+  "tools": [
+    {
+      "name": "Machado",
+      "userId": 2,
+      "id": 1
+    },
+    {
+      "name": "Bigorna",
+      "id": 2
+    },
+    {
+      "name": "Pá",
+      "userId": 4,
+      "id": 3
+    },
+    {
+      "name": "Pá",
+      "userId": 4,
+      "id": 4
+    },
+    {
+      "name": "Pá",
+      "userId": 4,
+      "id": 5
+    },
+    {
+      "id": 6
+    }
+  ],
+  "professionals": [
+    {
+      "name": "Carpinteiro",
+      "userId": 2,
+      "toolId": 1,
+      "id": 1
+    },
+    {
+      "name": "Ferreiro",
+      "userId": 3,
+      "toolId": 2,
+      "id": 2
+    },
+    {
+      "name": "Coveiro",
+      "userId": 4,
+      "toolId": 3,
+      "id": 3
     }
   ]
 }
